@@ -17,7 +17,7 @@ To create a Lightweight Render Pipeline Asset:
 2. Right-click in the Project window, and select  __Create__ &gt; __Rendering__ > __Lightweight__ __Render Pipeline Asset__. Alternatively, navigate to the menu bar in top, and click __Assets__ > __Create__ > __Rendering__ > __Lightweight Render Pipeline Asset__.
 3. Either leave the default name for the Asset, or type a new one. You've now created a LWRP Asset.
 
-**Tip:** You can create multiple pipeline Assets to store settings for different platforms or for different testing environments. Later, once you've started using LWRP, try to make several assets with different settings enabled. You can then swap out assets under Graphics settings and try out the combinations, to see what fits your Project or platforms best.
+**Tip:** You can create multiple LWRP Assets to store settings for different platforms or for different testing environments. Once you've started using LWRP, try swapping out LWRP Assets under Graphics settings and test the combinations, to see what fits your Project or platforms best. You cannot swap LWRP Assets for other types of render pipeline assets, though.
 
 
 

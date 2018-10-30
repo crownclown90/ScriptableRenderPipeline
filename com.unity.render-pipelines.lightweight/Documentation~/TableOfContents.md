@@ -1,4 +1,5 @@
 * [About LWRP](index.md)
+
   * [Built-in/LWRP comparison](lwrp-builtin-feature-comparison.md)
 * [Getting started with LWRP](getting-started-with-lwrp.md)
   * [Creating a new Project with LWRP](creating-a-new-project-with-lwrp.md)
@@ -11,6 +12,4 @@
   * [Unlit](unlit-shader.md)
 
 * [Upgrading shaders](upgrading-your-shaders.md)
-
-* [LWRP Asset](lwrp-asset.md)
 

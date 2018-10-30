@@ -19,9 +19,11 @@ To select the shader in the Material inspector:
 ## UI overview 
 The Inspector window contains these elements: 
 
-* __Surface Options__
-* __Surface Inputs__
-* __Advanced__
+* __[Surface Options](#surface-options)__
+* __[Surface Inputs](#surface-inputs)__
+* __[Advanced](#advanced)__
+
+![Inspector for the Simple Lit shader](Images/Inspectors/Shaders/StdSimpleLighting.png)
 
 ### Surface Options 
 

@@ -15,11 +15,13 @@ To select and use this shader:
 
 The Inspector window contains these elements: 
 
-* __Surface Options__
-* __Surface Inputs__
-* __Advanced__
+* __[Surface Options](#surface-options)__
+* __[Surface Inputs](#surface-inputs)__
+* __[Advanced](#advanced)__
 
 You can read more about each section in the following overviews.
+
+![Inspector for the Unlit shader](Images/Inspectors/Shaders/StdUnlit.png)
 
 ### Surface Options 
 
