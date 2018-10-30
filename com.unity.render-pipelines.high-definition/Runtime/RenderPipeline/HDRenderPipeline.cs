@@ -1162,7 +1162,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                         RenderObjectsVelocity(m_CullResults, hdCamera, renderContext, cmd);
                     }
 
-                    RenderCameraVelocity(cullingResults, hdCamera, renderContext, cmd);
+                    RenderCameraVelocity(m_CullResults, hdCamera, renderContext, cmd);
 
                     StopStereoRendering(cmd, renderContext, camera);
                     // Caution: We require sun light here as some skies use the sun light to render, it means that UpdateSkyEnvironment must be called after PrepareLightsForGPU.
