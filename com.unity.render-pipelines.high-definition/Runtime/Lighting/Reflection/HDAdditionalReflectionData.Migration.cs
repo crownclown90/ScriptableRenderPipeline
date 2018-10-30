@@ -7,31 +7,42 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         enum Version
         {
             First,
-            HDProbeChild = 2,
+            RemoveUsageOfLegacyProbeParamsForStocking,
+            HDProbeChild,
             UseInfluenceVolume,
             MergeEditors,
-            AddCaptureSettingsAndFrameSettings
+            AddCaptureSettingsAndFrameSettings,
+            ModeAndTextures
         }
 
         static readonly MigrationDescription<Version, HDAdditionalReflectionData> k_Migration
             = MigrationDescription.New(
-                MigrationStep.New(Version.MergeEditors, (HDAdditionalReflectionData t) =>
+                MigrationStep.New(Version.RemoveUsageOfLegacyProbeParamsForStocking, (HDAdditionalReflectionData t) =>
                 {
-                    t.infiniteProjection = !t.reflectionProbe.boxProjection;
-                    t.reflectionProbe.boxProjection = false;
+#pragma warning disable 618 // Type or member is obsolete
+                    t.m_ObsoleteBlendDistancePositive = t.m_ObsoleteBlendDistanceNegative = Vector3.one * t.reflectionProbe.blendDistance;
+                    t.weight = t.reflectionProbe.importance;
+                    t.multiplier = t.reflectionProbe.intensity;
+                    // size and center were kept in legacy until Version.UseInfluenceVolume
+                    //   and mode until Version.ModeAndTextures
+                    //   and all capture settings are done in Version.AddCaptureSettingsAndFrameSettings
+#pragma warning restore 618 // Type or member is obsolete
                 }),
                 MigrationStep.New(Version.UseInfluenceVolume, (HDAdditionalReflectionData t) =>
                 {
                     t.influenceVolume.boxSize = t.reflectionProbe.size;
+                    t.influenceVolume.offset = t.reflectionProbe.center;
 #pragma warning disable 618 // Type or member is obsolete
                     t.influenceVolume.sphereRadius = t.m_ObsoleteInfluenceSphereRadius;
-                    t.influenceVolume.shape = t.m_ObsoleteInfluenceShape; //must be done after each size transfert
+                    t.influenceVolume.shape = t.m_ObsoleteInfluenceShape;
                     t.influenceVolume.boxBlendDistancePositive = t.m_ObsoleteBlendDistancePositive;
                     t.influenceVolume.boxBlendDistanceNegative = t.m_ObsoleteBlendDistanceNegative;
                     t.influenceVolume.boxBlendNormalDistancePositive = t.m_ObsoleteBlendNormalDistancePositive;
                     t.influenceVolume.boxBlendNormalDistanceNegative = t.m_ObsoleteBlendNormalDistanceNegative;
                     t.influenceVolume.boxSideFadePositive = t.m_ObsoleteBoxSideFadePositive;
                     t.influenceVolume.boxSideFadeNegative = t.m_ObsoleteBoxSideFadeNegative;
+                    t.influenceVolume.sphereBlendDistance = t.m_ObsoleteBlendDistancePositive.x;
+                    t.influenceVolume.sphereBlendNormalDistance = t.m_ObsoleteBlendNormalDistancePositive.x;
 #pragma warning restore 618 // Type or member is obsolete
                     //Note: former editor parameters will be recreated as if non existent.
                     //User will lose parameters corresponding to non used mode between simplified and advanced
@@ -51,6 +62,12 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 #endif
                     t.captureSettings.nearClipPlane = t.reflectionProbe.nearClipPlane;
                     t.captureSettings.farClipPlane = t.reflectionProbe.farClipPlane;
+                }),
+                MigrationStep.New(Version.ModeAndTextures, (HDAdditionalReflectionData t) =>
+                {
+                    t.mode = t.reflectionProbe.mode;
+                    t.bakedTexture = t.reflectionProbe.bakedTexture;
+                    t.customTexture = t.reflectionProbe.customBakedTexture;
                 })
             );
 

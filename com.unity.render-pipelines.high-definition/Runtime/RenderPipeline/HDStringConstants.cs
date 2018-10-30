@@ -66,7 +66,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
     public static class HDShaderIDs
     {
         public static readonly int _ZClip = Shader.PropertyToID("_ZClip");
-        
+
         public static readonly int _HDShadowDatas = Shader.PropertyToID("_HDShadowDatas");
         public static readonly int _HDDirectionalShadowData = Shader.PropertyToID("_HDDirectionalShadowData");
         public static readonly int _ShadowmapAtlas = Shader.PropertyToID("_ShadowmapAtlas");
@@ -154,6 +154,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         public static readonly int _DebugLightingSmoothness = Shader.PropertyToID("_DebugLightingSmoothness");
         public static readonly int _DebugLightingNormal = Shader.PropertyToID("_DebugLightingNormal");
         public static readonly int _DebugLightingSpecularColor = Shader.PropertyToID("_DebugLightingSpecularColor");
+        public static readonly int _DebugLightingEmissiveColor = Shader.PropertyToID("_DebugLightingEmissiveColor");
         public static readonly int _AmbientOcclusionTexture = Shader.PropertyToID("_AmbientOcclusionTexture");
         public static readonly int _DebugMipMapMode = Shader.PropertyToID("_DebugMipMapMode");
         public static readonly int _DebugMipMapModeTerrainTexture = Shader.PropertyToID("_DebugMipMapModeTerrainTexture");
@@ -345,6 +346,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         public static readonly int _DepthPyramidTexture = Shader.PropertyToID("_DepthPyramidTexture");
         public static readonly int _ColorPyramidSize = Shader.PropertyToID("_ColorPyramidSize");
         public static readonly int _ColorPyramidScale = Shader.PropertyToID("_ColorPyramidScale");
+        public static readonly int _ColorPyramidUvScaleAndLimitPrevFrame = Shader.PropertyToID("_ColorPyramidUvScaleAndLimitPrevFrame");
         public static readonly int _DepthPyramidSize = Shader.PropertyToID("_DepthPyramidSize");
         public static readonly int _DepthPyramidScale = Shader.PropertyToID("_DepthPyramidScale");
 
@@ -402,9 +404,11 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         public static readonly int _AtmosphericScatteringType      = Shader.PropertyToID("_AtmosphericScatteringType");
         public static readonly int _AmbientProbeCoeffs             = Shader.PropertyToID("_AmbientProbeCoeffs");
-        public static readonly int _GlobalExtinction               = Shader.PropertyToID("_GlobalExtinction");
-        public static readonly int _GlobalScattering               = Shader.PropertyToID("_GlobalScattering");
-        public static readonly int _GlobalAnisotropy               = Shader.PropertyToID("_GlobalAnisotropy");
+        public static readonly int _HeightFogBaseExtinction        = Shader.PropertyToID("_HeightFogBaseExtinction");
+        public static readonly int _HeightFogBaseScattering        = Shader.PropertyToID("_HeightFogBaseScattering");
+        public static readonly int _HeightFogBaseHeight            = Shader.PropertyToID("_HeightFogBaseHeight");
+        public static readonly int _HeightFogExponents             = Shader.PropertyToID("_HeightFogExponents");
+        public static readonly int _GlobalFogAnisotropy            = Shader.PropertyToID("_GlobalFogAnisotropy");
         public static readonly int _CornetteShanksConstant         = Shader.PropertyToID("_CornetteShanksConstant");
         public static readonly int _VBufferResolution              = Shader.PropertyToID("_VBufferResolution");
         public static readonly int _VBufferSliceCount              = Shader.PropertyToID("_VBufferSliceCount");
