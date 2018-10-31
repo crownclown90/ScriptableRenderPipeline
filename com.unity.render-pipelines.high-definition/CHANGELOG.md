@@ -76,6 +76,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed blend mode pop up in UI not appearing when pre refraction is on
 - Fixed some null pointer exceptions when disabling motion vectors support
 - Fixed layered lit UI issue with scrollbar
+- Fixed ambient occlusion for Lit Master Node when slot is connected
 
 ### Changed
 - Use samplerunity_ShadowMask instead of samplerunity_samplerLightmap for shadow mask
